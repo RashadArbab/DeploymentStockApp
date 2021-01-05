@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
-const users = require('./routes/Users')
+const users = require('./routes/api')
 
 const app = express();
 const PORT = process.env.PORT || 8080; // Step 1
@@ -11,7 +11,6 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json()) 
 
 
-app.use('/api/users' , users)  ;
 // Step 2
 const MONGODB_URI = process.env.MONGODB_URI ; 
 
@@ -42,18 +41,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // HTTP request logger
 app.use(morgan('tiny'));
-
-const login = require('./routes/server-login');
-app.use ('/login' , login); 
-
-const register = require('./routes/server-register');
-app.use ('/register' , register); 
-
-const watchlist = require('./routes/server-watchlist');
-app.use ('/watchlist' , watchlist); 
-
-const notes = require('./routes/server-notes');
-app.use ('/notes' , notes); 
+app.use('/api/users' , users)  ;
 
 
 
