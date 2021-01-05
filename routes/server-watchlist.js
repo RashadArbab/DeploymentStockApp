@@ -81,7 +81,7 @@ router.post(`/add/:ticker/:email/:pass`, (req, res) => {
         }
     })
 })
-
+//"heroku-postbuild": "npm run install-client && npm run build",
 router.post(`/remove/:email/:pass/:stock`, (req, res) => {
     var email = req.params.email
     var pass = req.params.pass
