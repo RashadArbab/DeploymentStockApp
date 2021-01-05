@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8080; // Step 1
 
 // Step 2
 const MONGODB_URI = process.env.MONGODB_URI ; 
-mongodb+srv://RashadArbab:Admn6392!@cluster0.3gbxy.mongodb.net/StockApp?retryWrites=true&w=majority
+
 
 mongoose.connect(MONGODB_URI || 'mongodb://localhost/stock-app-deployment', {
     useNewUrlParser: true,
