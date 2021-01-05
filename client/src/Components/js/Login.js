@@ -35,6 +35,10 @@ function Login() {
         error: ''
     });
 
+    const [successMsg , setSuccessMsg] = useState() ; 
+    const [failMsg , setFailMsg] = useState() ; 
+
+
     const [submitCalled, setSubmitCalled] = useState(false);
     const [allFieldsValidated, setAllFieldsValidated] = useState(false);
 
@@ -58,14 +62,18 @@ function Login() {
                 Cookies.set('name' , `${res.data[1]}` , { sameSite: 'strict' , expires : 1});
                 Cookies.set('email' , `${email.value}` , { sameSite: 'strict' , expires : 1});
                 Cookies.set('pass', `${password.value}` , {sameSite: 'strict' , expires: 1}) ; 
-                
+                setSuccessMsg('authenticated')
                 window.location.href = "/watchlist" ; 
                 
 
             }
+            else if (res.data === `incorrect password`){
+                setFailMsg('incorrect password'); 
+            }
+           
         }).catch((err) => {
             console.log(err)
-            setWhatHappened(JSON.stringify(err))
+            setFailMsg('oops something went wrong :('); 
         });
 
 
@@ -223,7 +231,7 @@ function Login() {
             <div className="Form col-md-8 col-lg-6">
                 <div className="card " style={{ borderRadius: "15px" }}>
 
-                    <h4 className="card-title text-center">{Cookies.get('name')}</h4>
+                    <h4 className="card-title text-center">{Login}</h4>
 
 
                     <div className="card-body">
@@ -294,6 +302,9 @@ function Login() {
                                 style={{ margin: '25px' }}>
                                 Sign Up
                             </button>
+
+                            <div className="valid-feedback">{successMsg}</div> 
+                            <div className="invalid-feedback">{failMsg}</div> 
 
 
 
