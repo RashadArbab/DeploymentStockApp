@@ -59,6 +59,7 @@ function Login() {
                 Cookies.set('email' , `${email.value}` , { sameSite: 'strict' , expires : 1});
                 Cookies.set('pass', `${password.value}` , {sameSite: 'strict' , expires: 1}) ; 
                 
+                window.location.href = "/watchlist" ; 
                 
 
             }

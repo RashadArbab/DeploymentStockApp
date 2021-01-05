@@ -41,9 +41,9 @@ function Notes() {
         var removeNote = element; 
         console.log(`before api call ${removeNote}`)
         axios.post(`/api/users/notes/remove/${email}/${pass}/${stock}/${removeNote}`).then((res) => {
-            console.log(`after api call: ${res.data}`);
+            console.log(`notes removeFunction api call res: ${res.data}`);
         }).then(getNotes).catch((err) => {
-            console.log(err)
+            console.log(`notes removeFunction api call err: ${err}`);
         })
     }
 
