@@ -38,7 +38,7 @@ function Login() {
     const [submitCalled, setSubmitCalled] = useState(false);
     const [allFieldsValidated, setAllFieldsValidated] = useState(false);
 
-
+    const [whatHappened , setWhatHappened] = useState('not set yet');  
 
     function loginFunction() {
 
@@ -47,6 +47,7 @@ function Login() {
         console.log(`email.value before sending api request ${email.value}`)
         axios.post(`/api/users/login/id/${email.value}/${password.value}`).then(res => {
             if (res.data[0] === `access granted`) {
+                setWhatHappened(JSON.stringify(res.data))
                 setUser({
                     name: res.data[1],
                     email: email.value,
@@ -63,14 +64,12 @@ function Login() {
             }
         }).catch((err) => {
             console.log(err)
+            setWhatHappened(JSON.stringify(err))
         });
 
 
-
-        console.log(`Login: user.email: ${user.email}`)
-        sessionStorage.setItem('sessionEmail', user.email);
-        console.log(`Login: sessionStorage: ${sessionStorage.getItem("sessionEmail")}`)
-        sessionStorage.setItem('sessionAuthenticated', user.authenticated);
+        console.log(whatHappened);
+       
 
 
 
