@@ -38,8 +38,8 @@ function Notes() {
 
     function removeFunction(element) {
 
-        var removeNote = element
-        console.log(removeNote)
+        var removeNote = element.Ticker; 
+        console.log(removeNote.Ticker)
         axios.post(`/api/users/notes/remove/${email}/${pass}/${stock}/${removeNote}`).then((res) => {
             console.log(res.data);
         }).then(getNotes).catch((err) => {
