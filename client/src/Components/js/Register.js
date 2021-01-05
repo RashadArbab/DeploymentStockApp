@@ -81,7 +81,7 @@ function Register() {
 
 
         console.log('register function called')
-        axios.post(`/register/newUser/${name}/${email}/${pass}/stock/${Ticker}/${Market}/Notes/${Notes}`).then(res => {
+        axios.post(`/api/users/register/newUser/${name}/${email}/${pass}/stock/${Ticker}/${Market}/Notes/${Notes}`).then(res => {
             console.log(res);
         }).catch((err) => {
             console.log(err);

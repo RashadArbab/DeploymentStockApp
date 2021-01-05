@@ -12,7 +12,7 @@ function Notes() {
     const [currentNotes, setCurrentNotes] = useState([]);
 
     function addNoteFunction() {
-        axios.post(`/notes/add/${email}/${pass}/${stock}/${note}`).then((res) => {
+        axios.post(`/api/users/notes/add/${email}/${pass}/${stock}/${note}`).then((res) => {
             console.log(res.data)
         }).then(getNotes).catch((err) => {
             console.log(err);
@@ -23,7 +23,7 @@ function Notes() {
     }, [])
 
     function getNotes() {
-        axios.post(`/notes/get/${email}/${pass}/${stock}`).then((res) => {
+        axios.post(`/api/users/notes/get/${email}/${pass}/${stock}`).then((res) => {
             res.data.stock.forEach(element => {
                 if (element.Ticker === stock) {
                     setCurrentNotes(element.Notes)
@@ -40,7 +40,7 @@ function Notes() {
 
         var removeNote = element
         console.log(removeNote)
-        axios.post(`/notes/remove/${email}/${pass}/${stock}/${removeNote}`).then((res) => {
+        axios.post(`/api/users/notes/remove/${email}/${pass}/${stock}/${removeNote}`).then((res) => {
             console.log(res.data);
         }).then(getNotes).catch((err) => {
             console.log(err)

@@ -34,7 +34,7 @@ function Watchlist() {
     function getWatchlist() {
         console.log(`get watchlist running`);
 
-        axios.post(`/watchlist/id/${Cookies.get("email")}/${Cookies.get("pass")}`).then((res) => {
+        axios.post(`/api/users/watchlist/id/${Cookies.get("email")}/${Cookies.get("pass")}`).then((res) => {
             if (res) {
                 setWatchlist(res.data)
                 console.log(`user.name ${Cookies.get("name")}`)
@@ -83,7 +83,7 @@ function Watchlist() {
     function removeFunction(element) {
         var removeStock = element.Ticker 
         console.log(`this is remove stock ${removeStock}`)
-        axios.post(`/watchlist/remove/${Cookies.get("email")}/${Cookies.get("pass")}/${removeStock}`).then((res)=>{
+        axios.post(`/api/users/watchlist/remove/${Cookies.get("email")}/${Cookies.get("pass")}/${removeStock}`).then((res)=>{
             console.log(res.data); 
         }).then(getWatchlist).catch((err)=>{
             console.log(err); 
@@ -94,7 +94,7 @@ function Watchlist() {
 
     function addToList() {
         console.log(ticker);
-        axios.post(`/watchlist/add/${ticker}/${Cookies.get("email")}/${Cookies.get("pass")}`).then((res) => {
+        axios.post(`/api/users/watchlist/add/${ticker}/${Cookies.get("email")}/${Cookies.get("pass")}`).then((res) => {
             console.log(res)
             setFeedback(res.data)
 

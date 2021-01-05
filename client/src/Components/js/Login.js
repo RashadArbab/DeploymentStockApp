@@ -45,7 +45,7 @@ function Login() {
 
         console.log(`password.value before sending api request ${password.value}`)
         console.log(`email.value before sending api request ${email.value}`)
-        axios.post(`/login/id/${email.value}/${password.value}`).then(res => {
+        axios.post(`/api/users/login/id/${email.value}/${password.value}`).then(res => {
             if (res.data[0] === `access granted`) {
                 setUser({
                     name: res.data[1],
@@ -57,7 +57,7 @@ function Login() {
                 Cookies.set('name' , `${res.data[1]}` , { sameSite: 'strict' , expires : 1});
                 Cookies.set('email' , `${email.value}` , { sameSite: 'strict' , expires : 1});
                 Cookies.set('pass', `${password.value}` , {sameSite: 'strict' , expires: 1}) ; 
-                window.location.href = '/watchlist/' 
+                
                 
 
             }
