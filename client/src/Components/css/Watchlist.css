@@ -25,3 +25,7 @@ body {
 .btn{
     justify-content: center;
 }
+
+.darkbutton {
+    border-radius: 5px;
+}
