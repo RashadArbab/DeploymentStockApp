@@ -149,16 +149,12 @@ function Watchlist() {
                                 
                                     {feedback}
                             </div>
-                            {/*
+                          
                             <div className="btn btn-dark col-sm-4"
                                 type="submit"
                                 onClick={addToList}
                                 style={{ margin: '25px' }}>Add Stock
                             </div>
-                            */}
-
-
-
 
 
                             <ul className="col-7-md list-group list-group-flush">
