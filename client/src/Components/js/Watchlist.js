@@ -149,7 +149,7 @@ function Watchlist() {
                                 
                                     {feedback}
                             </div>
-                            <div className="btn btn-primary col-sm-4"
+                            <div className="btn btn-dark col-sm-4"
                                 type="submit"
                                 onClick={addToList}
                                 style={{ margin: '25px' }}>Add Stock

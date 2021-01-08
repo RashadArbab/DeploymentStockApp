@@ -228,7 +228,7 @@ function Login() {
     return (
         <div>
             <Navbar />
-            <div className="Form col-md-8 col-lg-6">
+            <div className="form col-md-8 col-lg-6">
                 <div className="card " style={{ borderRadius: "15px" }}>
 
                     <h4 className="card-title text-center">{Login}</h4>
@@ -298,7 +298,7 @@ function Login() {
                             </button>
 
                             <button className="btn btn-secondary col-sm-2"
-                                onClick={moveToRegister}
+                                onClick={moveToRegister} 
                                 style={{ margin: '25px' }}>
                                 Sign Up
                             </button>
