@@ -423,12 +423,12 @@ function Register() {
 
                         <button 
                             type="submit"
-                            className="btn btn-light col-sm-2"
+                            className="btn registerButton btn-light col-sm-2"
                             onMouseDown={() => handleSubmit}>
                             Sign Up
                             </button>
 
-                        <button className="btn btn-dark col-sm-2"
+                        <button className="btn registerButton btn-dark col-sm-2"
                             onClick={moveToLogin}
                             style={{ margin: '25px' }}>
                             Login

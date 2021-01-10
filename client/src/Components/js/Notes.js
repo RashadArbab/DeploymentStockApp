@@ -82,7 +82,7 @@ function Notes() {
                             return (
                                 <div className="row  justify-content-center">
                                     <li className="list-group-item col-sm-8">{element}</li>
-                                    <button className="btn btn-dark removeNoteButton col-sm-2" onClick={() => { removeFunction(element) }}>Remove</button>
+                                    <button className="btn  removeNoteButton col-sm-2" onClick={() => { removeFunction(element) }}>Remove</button>
 
                                 </div>
                             )

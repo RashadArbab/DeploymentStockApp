@@ -292,12 +292,12 @@ function Login() {
 
                         <div
                             type="submit"
-                            className="btn btn-light col-sm-2"
+                            className="btn loginButton btn-light col-sm-2"
                             onClick={(evt) => handleSubmit(evt)}>
                             Login
                         </div>
 
-                        <div className="btn btn-dark col-sm-2"
+                        <div className="btn loginButton btn-dark col-sm-2"
                             onClick={moveToRegister}>
                             Sign Up
                         </div>
