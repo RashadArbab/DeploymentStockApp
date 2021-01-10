@@ -114,10 +114,7 @@ function Home() {
 
 
             <div className="contain">
-
-
                 <Financials name={stock} />
-
             </div>
 
 
