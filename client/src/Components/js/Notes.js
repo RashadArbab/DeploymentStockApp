@@ -73,9 +73,9 @@ function Notes() {
                         {
                             feedback
                         }
-                        <button className="btn btn-light addNoteButton col-sm-4" type="submit" onClick={addNoteFunction}>
+                        <div className="btn btn-light addNoteButton col-sm-4" type="submit" onClick={addNoteFunction}>
                             Add Note
-                        </button>
+                        </div>
                     </div>
                     <ul className="col-7-md list-group list-group-flush">
                         {currentNotes.map((element) => {
