@@ -14,14 +14,10 @@ function Notes() {
     function addNoteFunction() {
         axios.post(`/api/users/notes/add/${email}/${pass}/${stock}/${note}`).then((res) => {
             console.log(res.data)
-            setFeedback(
-                <div className="text-success">{res.data}</div>
-            );
+            
         }).then(getNotes).catch((err) => {
             console.log(err);
-            setFeedback(
-                <div className="text-danger">Oops Something Went Wrong</div>
-            )
+           
         })
     }
     useEffect(() => {
@@ -70,9 +66,7 @@ function Notes() {
                             className="form-control input-group-text"
                             onChange={(evt) => { setNote(evt.target.value) }} />
 
-                        {
-                            feedback
-                        }
+                     
                         <div className="btn btn-light addNoteButton col-sm-4" type="submit" onClick={addNoteFunction}>
                             Add Note
                         </div>
@@ -82,7 +76,7 @@ function Notes() {
                             return (
                                 <div className="row  justify-content-center">
                                     <li className="list-group-item col-sm-8">{element}</li>
-                                    <button className="btn  removeNoteButton col-sm-2" onClick={() => { removeFunction(element) }}>Remove</button>
+                                    <div className="btn  removeNoteButton col-sm-2" onClick={() => { removeFunction(element) }}>Remove</div>
 
                                 </div>
                             )

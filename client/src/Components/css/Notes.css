@@ -31,7 +31,7 @@ body{
 
 .removeNoteButton{
     padding: 20px;
-  
+    color: white !important; 
     border-radius: 0px !important;
     background-color: #202020d5 !important;
    
