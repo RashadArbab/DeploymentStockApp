@@ -23,7 +23,7 @@ function Home() {
         }
     }
 
-    
+
     const { user, setUser } = useContext(UserContext);
     var localUse = {
         name: sessionStorage.getItem('sessionName'),
@@ -122,13 +122,12 @@ function Home() {
 
 
             <div className="contain2">
-                <Profile name={stock}  />
+                <Profile name={stock} />
             </div>
-            <div className="row">
-                <div className="col-xl-6 justify-content-center">
-                    <Notes />
-                </div>
-            </div>
+
+
+            <Notes />
+
 
 
         </div>

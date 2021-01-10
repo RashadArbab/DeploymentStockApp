@@ -1,5 +1,5 @@
 .card{
-    margin-top: ;
+    margin-top: 50px;
     width:50vw; 
     left: 25vw;
     border-radius: 7px;
@@ -10,5 +10,8 @@
 }
 
 .submit {
-	padding: 10px;
+	padding: 20px;
+}
+.btn {
+    border-radius: 5px !important;
 }

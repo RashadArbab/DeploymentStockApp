@@ -71,7 +71,7 @@ function Watchlist() {
                             {element.Ticker.toUpperCase()}
                         </div>
                     </a>
-                    <button className="btn btn-dark col-sm-2" onClick={() => { removeFunction(element) }}>Remove</button>
+                    <button className="btn btn-dark removeButton col-sm-2" onClick={() => { removeFunction(element) }}>Remove</button>
                 </div>
             )
         }))
@@ -126,12 +126,12 @@ function Watchlist() {
 
 
         <div>
-            <Navbar />
+            <Navbar/>
 
 
 
             <div className="row">
-                <div className="card col-sm-6">
+                <div className="card col-sm-6" >
                     <h3 class="card-title">Watchlist</h3>
                     <div className="form" onSubmit={evt => handleSubmit(evt)}>
                         <div className="form-group">
@@ -150,7 +150,7 @@ function Watchlist() {
                                     {feedback}
                             </div>
                           
-                            <div className="btn darkbutton btn-dark col-sm-4"
+                            <div className="btn btn-light col-sm-4"
                                 type="submit"
                                 onClick={addToList}
                                 style={{ margin: '25px' }}>Add Stock

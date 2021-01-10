@@ -15,7 +15,7 @@ function Login() {
     const { user, setUser } = useContext(UserContext);
     const [cookies, setCookies] = useState({})
 
-    
+
 
 
 
@@ -35,14 +35,14 @@ function Login() {
         error: ''
     });
 
-    const [successMsg , setSuccessMsg] = useState() ; 
-    const [failMsg , setFailMsg] = useState() ; 
+    const [successMsg, setSuccessMsg] = useState();
+    const [failMsg, setFailMsg] = useState();
 
 
     const [submitCalled, setSubmitCalled] = useState(false);
     const [allFieldsValidated, setAllFieldsValidated] = useState(false);
 
-    const [whatHappened , setWhatHappened] = useState('not set yet');  
+    const [whatHappened, setWhatHappened] = useState('not set yet');
 
     function loginFunction() {
 
@@ -59,26 +59,26 @@ function Login() {
                     authenticated: true
                 });
                 console.log(`access granted ${res.data[1]}`);
-                Cookies.set('name' , `${res.data[1]}` , { sameSite: 'strict' , expires : 1});
-                Cookies.set('email' , `${email.value}` , { sameSite: 'strict' , expires : 1});
-                Cookies.set('pass', `${password.value}` , {sameSite: 'strict' , expires: 1}) ; 
+                Cookies.set('name', `${res.data[1]}`, { sameSite: 'strict', expires: 1 });
+                Cookies.set('email', `${email.value}`, { sameSite: 'strict', expires: 1 });
+                Cookies.set('pass', `${password.value}`, { sameSite: 'strict', expires: 1 });
                 setSuccessMsg('authenticated')
-                window.location.href = "/watchlist" ; 
-                
+                window.location.href = "/watchlist";
+
 
             }
-            else if (res.data === `incorrect password`){
-                setFailMsg('incorrect password'); 
+            else if (res.data === `incorrect password`) {
+                setFailMsg('incorrect password');
             }
-           
+
         }).catch((err) => {
             console.log(err)
-            setFailMsg('oops something went wrong :('); 
+            setFailMsg('oops something went wrong :(');
         });
 
 
         console.log(whatHappened);
-       
+
 
 
 
@@ -228,94 +228,93 @@ function Login() {
     return (
         <div>
             <Navbar />
-            <div className="form col-md-8 col-lg-6">
-                <div className="card " style={{ borderRadius: "15px" }}>
+            <div className="card col-sm-6">
 
-                    <h4 className="card-title text-center">{Login}</h4>
-
-
-                    <div className="card-body">
-                        {allFieldsValidated && (
-                            <p className="text-success text-center">
-                                Success, All fields are validated
-                            </p>
-                        )}
-
-                        {/* Form Starts Here */}
-                        <form onSubmit={evt => handleSubmit(evt)}>
+                <h4 className="card-title text-center">Login</h4>
 
 
+                <div className="card-body">
+                    {allFieldsValidated && (
+                        <p className="text-success text-center">
+                            Success, All fields are validated
+                        </p>
+                    )}
 
-                            {/* Email field */}
-                            <div className="form-group">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={email.value}
-                                    placeholder={"Enter email here"}
-                                    className={classnames(
-                                        'form-control',
-                                        { 'is-valid': email.error === false },
-                                        { 'is-invalid': email.error }
-                                    )}
-                                    onChange={evt =>
-                                        handleChange(validateFields.validateEmail, evt)
-                                    }
-                                    onBlur={evt =>
-                                        handleBlur(validateFields.validateEmail, evt)
-                                    }
-                                />
-                                <div className="invalid-feedback">{email.error}</div>
-                            </div>
+                    {/* Form Starts Here */}
+                    <form onSubmit={evt => handleSubmit(evt)}>
 
-                            {/* Password field */}
-                            <div className="form-group">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    value={password.value}
-                                    placeholder="Enter your password"
-                                    className={classnames(
-                                        'form-control',
-                                        { 'is-valid': password.error === false },
-                                        { 'is-invalid': password.error }
-                                    )}
-                                    onChange={evt =>
-                                        handleChange(validateFields.validatePassword, evt)
-                                    }
-                                    onBlur={evt =>
-                                        handleBlur(validateFields.validatePassword, evt)
-                                    }
-                                />
-                                <div className="invalid-feedback">{password.error}</div>
-                            </div>
 
-                            <button
-                                type="submit"
-                                className="btn btn-primary col-sm-2"
-                                onMouseDown={() => setSubmitCalled(true)}>
-                                Login
-                            </button>
 
-                            <button className="btn btn-secondary col-sm-2"
-                                onClick={moveToRegister} 
-                                style={{ margin: '25px' }}>
-                                Sign Up
-                            </button>
+                        {/* Email field */}
+                        <div className="form-group">
+                            <input
+                                type="email"
+                                name="email"
+                                value={email.value}
+                                placeholder={"Enter email here"}
+                                className={classnames(
+                                    'form-control',
+                                    { 'is-valid': email.error === false },
+                                    { 'is-invalid': email.error }
+                                )}
+                                onChange={evt =>
+                                    handleChange(validateFields.validateEmail, evt)
+                                }
+                                onBlur={evt =>
+                                    handleBlur(validateFields.validateEmail, evt)
+                                }
+                            />
+                            <div className="invalid-feedback">{email.error}</div>
+                        </div>
 
-                            <div className="valid-feedback">{successMsg}</div> 
-                            <div className="invalid-feedback">{failMsg}</div> 
+                        {/* Password field */}
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                name="password"
+                                value={password.value}
+                                placeholder="Enter your password"
+                                className={classnames(
+                                    'form-control',
+                                    { 'is-valid': password.error === false },
+                                    { 'is-invalid': password.error }
+                                )}
+                                onChange={evt =>
+                                    handleChange(validateFields.validatePassword, evt)
+                                }
+                                onBlur={evt =>
+                                    handleBlur(validateFields.validatePassword, evt)
+                                }
+                            />
+                            <div className="invalid-feedback">{password.error}</div>
+                        </div>
 
+                        <button
+                            type="submit"
+                            className="btn btn-light col-sm-2"
+                            onMouseDown={() => setSubmitCalled(true)}>
+                            Login
+                        </button>
+
+                        <button className="btn btn-dark col-sm-2"
+                            onClick={moveToRegister}
+                            style={{ margin: '25px' }}>
+                            Sign Up
+                        </button>
+
+                        <div className="valid-feedback">{successMsg}</div>
+                        <div className="invalid-feedback">{failMsg}</div>
 
 
 
 
 
 
-                        </form>
-                    </div>
+
+                    </form>
                 </div>
             </div>
+
         </div>
     );
 

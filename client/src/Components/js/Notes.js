@@ -14,8 +14,14 @@ function Notes() {
     function addNoteFunction() {
         axios.post(`/api/users/notes/add/${email}/${pass}/${stock}/${note}`).then((res) => {
             console.log(res.data)
+            setFeedback(
+                <div className="text-success">{res.data}</div>
+            );
         }).then(getNotes).catch((err) => {
             console.log(err);
+            setFeedback(
+                <div className="text-danger">Oops Something Went Wrong</div>
+            )
         })
     }
     useEffect(() => {
@@ -38,7 +44,7 @@ function Notes() {
 
     function removeFunction(element) {
 
-        var removeNote = element; 
+        var removeNote = element;
         console.log(`before api call ${removeNote}`)
         axios.post(`/api/users/notes/remove/${email}/${pass}/${stock}/${removeNote}`).then((res) => {
             console.log(`notes removeFunction api call res: ${res.data}`);
@@ -46,59 +52,47 @@ function Notes() {
             console.log(`notes removeFunction api call err: ${err}`);
         })
     }
-
+    const [feedback, setFeedback] = useState();
 
     const [note, setNote] = useState('');
     return (
-        <div className="container" >
-            <div className="card col-sm-12 justify-content-center" >
-                <div className="card-title">
-                    {stock}
-                </div>
-                <div className="card-body">
-                    <div className="from">
-                        <div className="row justify-content-center">
-                            <div className="input-text col-sm-10">
-                                <input
-                                    type="text"
-                                    name="Note"
-                                    value={note.value}
-                                    placeholder={"Enter Note Here"}
-                                    className="form-control input-group-text bg-dark text-white"
-                                    onChange={(evt) => { setNote(evt.target.value) }} />
-                            </div>
-                            <div className="btn btn-light col-sm-2" type="submit" onClick={addNoteFunction}>
-                                Add
-                            </div>
+        <div className="row">
+            <div className="card col-6">
+                <h3 class="card-title">{stock}</h3>
+                <div className="form" onSubmit={addNoteFunction}>
+                    <div className="form-group">
 
+                        <input
+                            type="text"
+                            name="Note"
+                            value={note.value}
+                            placeholder={"Enter Note Here"}
+                            className="form-control input-group-text"
+                            onChange={(evt) => { setNote(evt.target.value) }} />
 
-
-                        </div>
+                        {
+                            feedback
+                        }
+                        <button className="btn btn-light addNoteButton col-sm-4" type="submit" onClick={addNoteFunction}>
+                            Add Note
+                        </button>
                     </div>
+                    <ul className="col-7-md list-group list-group-flush">
+                        {currentNotes.map((element) => {
+                            return (
+                                <div className="row  justify-content-center">
+                                    <li className="list-group-item col-sm-8">{element}</li>
+                                    <button className="btn btn-dark col-sm-2" onClick={() => { removeFunction(element) }}>Remove</button>
+
+                                </div>
+                            )
+                        })}
+                    </ul>
                 </div>
-
-                <div>
-                    <h3>
-                        <div className="notes-list">
-                            <div className="list-group  list-group-flush">
-                                {currentNotes.map((element) => {
-                                    return (
-                                        <div className="row  justify-content-center">
-
-                                            <li className="list-group-item col-sm-10">{element}</li>
-                                            <button className="btn btn-dark col-sm-2" onClick={() => { removeFunction(element) }}>Remove</button>
-
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                    </h3>
-                </div>
-
             </div>
-        </div>
 
+
+        </div >
 
     );
 

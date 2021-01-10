@@ -4,8 +4,9 @@ import classnames from 'classnames';
 import axios from 'axios';
 import '../css/Register.css';
 import Navbar from './LoginNavbar';
-import Cookies from 'js-cookie'; 
+import Cookies from 'js-cookie';
 import { UserContext } from './UserContext';
+import { Button } from 'bootstrap';
 
 
 
@@ -238,7 +239,7 @@ function Register() {
     function handleSubmit(evt) {
         evt.preventDefault();
         // validate all fields
-        console.log('handle submit called'); 
+        console.log('handle submit called');
 
         const nameError = validateFields.validateName(name.value);
         const emailError = validateFields.validateEmail(email.value);
@@ -248,9 +249,9 @@ function Register() {
             console.log("no errors found before submission")
             // no errors submit the form
             registerFunction(name.value, email.value, password.value);
-            Cookies.set("name" , name.value); 
-            Cookies.set("email" , email.value); 
-            Cookies.set("pass" , password.value); 
+            Cookies.set("name", name.value);
+            Cookies.set("email", email.value);
+            Cookies.set("pass", password.value);
 
 
 
@@ -316,133 +317,133 @@ function Register() {
         <div>
 
             <Navbar />
-            <div className="Form col-md-8 col-lg-6">
-                <div className="card">
 
-                    <h4 className="card-title text-center">Sign Up</h4>
+            <div className="card col-sm-6">
+
+                <h4 className="card-title text-center">Sign Up</h4>
 
 
-                    <div className="card-body">
-                        {allFieldsValidated && (
-                            <p className="text-success text-center">
-                                Success, All fields are validated
-                            </p>
-                        )}
+                <div className="card-body">
+                    {allFieldsValidated && (
+                        <p className="text-success text-center">
+                            Success, All fields are validated
+                        </p>
+                    )}
 
-                        {/* Form Starts Here */}
-                        <form onSubmit={evt => handleSubmit(evt)}>
+                    {/* Form Starts Here */}
+                    <form onSubmit={evt => handleSubmit(evt)}>
 
-                            {/* Name field */}
-                            <div className="form-group">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={name.value}
-                                    placeholder="Enter your name"
-                                    className={classnames(
-                                        'form-control',
-                                        { 'is-valid': name.error === false },
-                                        { 'is-invalid': name.error }
-                                    )}
-                                    onChange={evt =>
-                                        handleChange(validateFields.validateName, evt)
-                                    }
-                                    onBlur={evt =>
-                                        handleBlur(validateFields.validateName, evt)
-                                    }
-                                />
-                                <div className="invalid-feedback">{name.error}</div>
-                            </div>
+                        {/* Name field */}
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                name="name"
+                                value={name.value}
+                                placeholder="Enter your name"
+                                className={classnames(
+                                    'form-control',
+                                    { 'is-valid': name.error === false },
+                                    { 'is-invalid': name.error }
+                                )}
+                                onChange={evt =>
+                                    handleChange(validateFields.validateName, evt)
+                                }
+                                onBlur={evt =>
+                                    handleBlur(validateFields.validateName, evt)
+                                }
+                            />
+                            <div className="invalid-feedback">{name.error}</div>
+                        </div>
 
-                            {/* Email field */}
-                            <div className="form-group">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={email.value}
-                                    placeholder="Enter your email"
-                                    className={classnames(
-                                        'form-control',
-                                        { 'is-valid': email.error === false },
-                                        { 'is-invalid': email.error }
-                                    )}
-                                    onChange={evt =>
-                                        handleChange(validateFields.validateEmail, evt)
-                                    }
-                                    onBlur={evt =>
-                                        handleBlur(validateFields.validateEmail, evt)
-                                    }
-                                />
-                                <div className="invalid-feedback">{email.error}</div>
-                            </div>
+                        {/* Email field */}
+                        <div className="form-group">
+                            <input
+                                type="email"
+                                name="email"
+                                value={email.value}
+                                placeholder="Enter your email"
+                                className={classnames(
+                                    'form-control',
+                                    { 'is-valid': email.error === false },
+                                    { 'is-invalid': email.error }
+                                )}
+                                onChange={evt =>
+                                    handleChange(validateFields.validateEmail, evt)
+                                }
+                                onBlur={evt =>
+                                    handleBlur(validateFields.validateEmail, evt)
+                                }
+                            />
+                            <div className="invalid-feedback">{email.error}</div>
+                        </div>
 
-                            {/* Password field */}
-                            <div className="form-group">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    value={password.value}
-                                    placeholder="Enter your password"
-                                    className={classnames(
-                                        'form-control',
-                                        { 'is-valid': password.error === false },
-                                        { 'is-invalid': password.error }
-                                    )}
-                                    onChange={evt =>
-                                        handleChange(validateFields.validatePassword, evt)
-                                    }
-                                    onBlur={evt =>
-                                        handleBlur(validateFields.validatePassword, evt)
-                                    }
-                                />
-                                <div className="invalid-feedback">{password.error}</div>
-                            </div>
-                            {/* ConfirmPassword field */}
-                            <div className="form-group">
+                        {/* Password field */}
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                name="password"
+                                value={password.value}
+                                placeholder="Enter your password"
+                                className={classnames(
+                                    'form-control',
+                                    { 'is-valid': password.error === false },
+                                    { 'is-invalid': password.error }
+                                )}
+                                onChange={evt =>
+                                    handleChange(validateFields.validatePassword, evt)
+                                }
+                                onBlur={evt =>
+                                    handleBlur(validateFields.validatePassword, evt)
+                                }
+                            />
+                            <div className="invalid-feedback">{password.error}</div>
+                        </div>
+                        {/* ConfirmPassword field */}
+                        <div className="form-group">
 
-                                <input
-                                    type="password"
-                                    name="confirmPassword"
-                                    value={confirmPassword.value}
-                                    placeholder="Confirm"
-                                    className={classnames(
-                                        'form-control',
-                                        { 'is-valid': confirmPassword.error === false },
-                                        { 'is-invalid': confirmPassword.error }
-                                    )}
-                                    onChange={evt =>
-                                        handleChange(validateFields.validateConfirmPassword, evt)
-                                    }
-                                    onBlur={evt =>
-                                        handleBlur(validateFields.validateConfirmPassword, evt)
-                                    }
-                                />
-                                <div className="invalid-feedback">{confirmPassword.error}</div>
-                            </div>
+                            <input
+                                type="password"
+                                name="confirmPassword"
+                                value={confirmPassword.value}
+                                placeholder="Confirm"
+                                className={classnames(
+                                    'form-control',
+                                    { 'is-valid': confirmPassword.error === false },
+                                    { 'is-invalid': confirmPassword.error }
+                                )}
+                                onChange={evt =>
+                                    handleChange(validateFields.validateConfirmPassword, evt)
+                                }
+                                onBlur={evt =>
+                                    handleBlur(validateFields.validateConfirmPassword, evt)
+                                }
+                            />
+                            <div className="invalid-feedback">{confirmPassword.error}</div>
+                        </div>
 
-                            <button
-                                type="submit"
-                                className="btn btn-primary col-sm-2"
-                                onMouseDown={() => handleSubmit}>
-                                Sign Up
+                        <button 
+                            type="submit"
+                            className="btn btn-light col-sm-2"
+                            onMouseDown={() => handleSubmit}>
+                            Sign Up
                             </button>
 
-                            <div className="btn btn-secondary col-sm-2"
-                                onClick={moveToLogin}
-                                style={{ margin: '25px' }}>
-                                Login
-                            </div>
+                        <button className="btn btn-dark col-sm-2"
+                            onClick={moveToLogin}
+                            style={{ margin: '25px' }}>
+                            Login
+                            </button>
 
 
 
 
 
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+
     );
 }
 

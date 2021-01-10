@@ -1,29 +1,29 @@
 
 
 body {
-    padding-right: 15px; 
+    
     padding-bottom: 50px;
 }
 
 .form { 
-    padding: 50px;
+    padding: 50px !important;
     
 }
 .list-group-item {
-    font-size:25px; 
-    color : #eeeeee ;
-    font-weight: 400;
-    background-color: aqua;
+    font-size:25px!important;  
+    color : #eeeeee !important;  
+    font-weight: 400!important;  
+    
 }
 
-.list-group-item:hover{
-    color: #eeeeee; 
-    font-size: 27px;
-    font-weight: 500;
+.list-group-item:hover { 
+    color: #eeeeee  !important;  
+    font-size: 27px !important;
+    font-weight: 500!important;
 }
 
 .btn{
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .darkbutton {
@@ -31,5 +31,11 @@ body {
 }
 
 .card {
-    opacity: 0.4 ;
+    margin-top: 50px !important ;
+    border-radius: 15px !important;
+
+}
+
+.removeButton {
+    border-radius: 0px !important;
 }

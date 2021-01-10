@@ -3,35 +3,26 @@ body{
 }
 
 
-
-.input-text { 
-    color:'white' !important; 
-}
 .card {
     background-color: #333333 !important;
     justify-content: center;
     width: 100vw; 
     margin:10px !important ;
+    border-radius: 15px !important;
 }
 
-.input-group-text {
-    background-color : #eeeeee !important; 
-}
+
 
 .form-control { 
     background-color: #eeeeee !important; 
+}
+.form {
+    padding: 50px !important; 
 }
 
 .btn-light{
     padding-left: 0px !important;
 }
-.container{
-    padding:10px;
-}
-
-
-
-
 
 
 
@@ -52,6 +43,10 @@ body{
     border-radius: 10px;
 }
 
+.addNoteButton {
+    margin-top: 45px ;
+    margin-bottom: 15px ;
+}
 /*
 border-bottom-right-radius: 5px !important;
     border-top-right-radius: 5px !important;
