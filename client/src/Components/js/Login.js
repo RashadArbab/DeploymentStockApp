@@ -188,6 +188,7 @@ function Login() {
      */
     function handleSubmit(evt) {
         console.log("handle submit called");
+        setSubmitCalled(true); 
         evt.preventDefault();
         // validate all fields
         console.log(`${email.value}  ${password.value}`);
@@ -289,18 +290,17 @@ function Login() {
                             <div className="invalid-feedback">{password.error}</div>
                         </div>
 
-                        <button
+                        <div
                             type="submit"
                             className="btn btn-light col-sm-2"
-                            onMouseDown={() => setSubmitCalled(true)}>
+                            onClick={(evt) => handleSubmit(evt)}>
                             Login
-                        </button>
+                        </div>
 
-                        <button className="btn btn-dark col-sm-2"
-                            onClick={moveToRegister}
-                            style={{ margin: '25px' }}>
+                        <div className="btn btn-dark col-sm-2"
+                            onClick={moveToRegister}>
                             Sign Up
-                        </button>
+                        </div>
 
                         <div className="valid-feedback">{successMsg}</div>
                         <div className="invalid-feedback">{failMsg}</div>
