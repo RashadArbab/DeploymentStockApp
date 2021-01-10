@@ -59,7 +59,7 @@ function Notes() {
         <div className="row">
             <div className="card col-6">
                 <h3 class="card-title">{stock}</h3>
-                <div className="form" onSubmit={addNoteFunction}>
+                <div className="form">
                     <div className="form-group">
 
                         <input
