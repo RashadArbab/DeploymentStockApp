@@ -29,3 +29,7 @@ body {
 .darkbutton {
     border-radius: 5px;
 }
+
+.card {
+    opacity: 0.4 ;
+}
