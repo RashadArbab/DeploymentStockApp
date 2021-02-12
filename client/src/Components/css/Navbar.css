@@ -1,8 +1,4 @@
 
-.navbar{
-    background-color: rgb(255, 213, 23);
-  
-}
 
 .nav-link {
     font-size:25px; 
@@ -19,7 +15,7 @@
 
 .navbar-brand{
     font-size:25px; 
-    color : #222831 ;
+    color : white; 
     font-weight: 400;
     
 }
@@ -29,4 +25,16 @@
     font-size: 27px;
     font-weight: 500;
    
+}
+
+.Tab {
+    color : white; 
+}
+
+.AppBar {
+    background-color: black !important;
+}
+
+.Tab {
+    color: white !important ; 
 }

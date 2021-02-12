@@ -8,12 +8,12 @@ const bodyParser = require('body-parser')
 
 const app = express();
 const PORT = process.env.PORT || 8080; // Step 1
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json()) 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 // Step 2
-const MONGODB_URI = process.env.MONGODB_URI ; 
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 mongoose.connect(MONGODB_URI || 'mongodb+srv://RashadArbab:Admn6392!@cluster0.3gbxy.mongodb.net/StockApp?retryWrites=true&w=majority', {
@@ -32,20 +32,23 @@ app.use(express.urlencoded({ extended: false }));
 
 // Step 3
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-    
-    app.get("*", (req , res)=>{
-        res.sendFile(path.resolve(__dirname , 'client' , 'build' , 'index.html'))
-    })
-    
-}
+
+app.use(express.static('client/build'));
+
+app.get("/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+})
+
+
 
 
 // HTTP request logger
 app.use(morgan('tiny'));
-app.use('/api/users' , users)  ;
+app.use('/api/users', users);
 
 
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
+
+
+//Change package.json to //"proxy": "https://limitless-castle-40490.herokuapp.com"

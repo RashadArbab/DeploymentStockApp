@@ -229,7 +229,7 @@ function Login() {
     return (
         <div>
             <Navbar />
-            <div className="card col-sm-6">
+            <div className="card ">
 
                 <h4 className="card-title text-center">Login</h4>
 
